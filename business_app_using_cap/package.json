@@ -1,0 +1,30 @@
+{
+  "name": "business_app_using_cap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "cds watch",
+    "start": "cds run",
+    "build:prod": "cds build --production",
+    "deploy:sqlite": "cds deploy --to sqlite:db/my-bookshop.db"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/cds": "^4.2.8",
+    "@sap/hana-client": "^2.6.58",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.0.0"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sql"
+      }
+    }
+  }
+}
