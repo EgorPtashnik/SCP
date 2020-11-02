@@ -7,4 +7,4 @@
 4. Develop a Fiori Launchpad App with Your Own Dev Tools -
 5. Develop a Node.js App on SAP Cloud Platform +
 6. Take a Deep Dive into OData +
-7.
+7. Start Developing in SAP Cloud Platform +
