@@ -1,0 +1,13 @@
+<mvc:View controllerName="aboutapp.controller.Home" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:u="sap.uxap"
+  xmlns:mvc="sap.ui.core.mvc">
+  <u:ObjectPageLayout>
+    <u:headerTitle>
+      <u:ObjectPageHeader
+        objectTitle="{i18n>title}">
+
+      </u:ObjectPageHeader>
+    </u:headerTitle>
+  </u:ObjectPageLayout>
+</mvc:View>
