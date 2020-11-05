@@ -1,13 +1,42 @@
 <mvc:View controllerName="aboutapp.controller.Home" displayBlock="true"
   xmlns="sap.m"
   xmlns:u="sap.uxap"
+  xmlns:form="sap.ui.layout.form"
   xmlns:mvc="sap.ui.core.mvc">
   <u:ObjectPageLayout>
     <u:headerTitle>
       <u:ObjectPageHeader
-        objectTitle="{i18n>title}">
-
-      </u:ObjectPageHeader>
+        objectTitle="{i18n>title}"
+        objectSubtitle="{i18n>subtitle}"
+        objectImageURI="resources/img/avatar.jpeg"
+        objectImageAlt="{i18n>title}}"
+        objectImageShape="Circle"/>
     </u:headerTitle>
+    <u:headerContent>
+      <Avatar displaySize="XL" src="resources/img/avatar.jpeg"/>
+      <VBox>
+        <ObjectStatus title="{i18n>email}" text="{state>/email}"/>
+        <ObjectStatus title="{i18n>phone}" text="{state>/phone}"/>
+        <ObjectStatus title="{i18n>dateOfBirth}" text="{state>/dateOfBirth}"/>
+      </VBox>
+      <VBox>
+        <ObjectStatus state="Success" icon="sap-icon://accept" text="{i18n>readyForTrips}"/>
+        <ObjectStatus state="Success" icon="sap-icon://accept" text="{i18n>readyForExp}"/>
+        <ObjectStatus state="Success" icon="sap-icon://accept" text="{i18n>goodCommunication}"/>
+      </VBox>
+      <VBox>
+        <Label text="{i18n>country}"/>
+        <Label text="{path: 'state>/time', type: 'sap.ui.model.type.DateTime' }"/>
+      </VBox>
+    </u:headerContent>
+    <u:sections>
+      <u:ObjectPageSection titleUppercase="false" title="{i18n>contactInfo}">
+        <u:subSections>
+          <u:ObjectPageSubSection titleUppercase="false" title="{i18n>socialNetworks}">
+
+          </u:ObjectPageSubSection>
+        </u:subSections>
+      </u:ObjectPageSection>
+    </u:sections>
   </u:ObjectPageLayout>
 </mvc:View>
