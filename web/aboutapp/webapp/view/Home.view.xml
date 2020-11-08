@@ -3,21 +3,28 @@
   xmlns:u="sap.uxap"
   xmlns:form="sap.ui.layout.form"
   xmlns:mvc="sap.ui.core.mvc">
-  <u:ObjectPageLayout>
+  <u:ObjectPageLayout upperCaseAnchorBar="false">
     <u:headerTitle>
       <u:ObjectPageHeader
         objectTitle="{i18n>title}"
         objectSubtitle="{i18n>subtitle}"
         objectImageURI="resources/img/avatar.jpeg"
         objectImageAlt="{i18n>title}}"
-        objectImageShape="Circle"/>
+        objectImageShape="Circle">
+        <u:ObjectPageHeaderActionButton press="handleSendEmail" tooltip="{i18n>sendMail}" icon="sap-icon://email"/>
+      </u:ObjectPageHeader>
     </u:headerTitle>
     <u:headerContent>
-      <Avatar displaySize="XL" src="resources/img/avatar.jpeg"/>
+      <Avatar showBorder="true" displaySize="XL" src="resources/img/avatar.jpeg"/>
       <VBox>
         <ObjectStatus title="{i18n>email}" text="{state>/email}"/>
         <ObjectStatus title="{i18n>phone}" text="{state>/phone}"/>
         <ObjectStatus title="{i18n>dateOfBirth}" text="{state>/dateOfBirth}"/>
+        <HBox>
+          <Image press="handleSocialNetworkPress(0)" src="resources/img/linkedin.svg" height="18px" width="18px"/>
+          <Image press="handleSocialNetworkPress(1)" src="resources/img/vk.svg" width="18px" height="18px" class="sapUiTinyMarginBeginEnd"/>
+          <Image press="handleSocialNetworkPress(2)" src="resources/img/instagram.svg" height="18px" width="18px"/>
+        </HBox>
       </VBox>
       <VBox>
         <ObjectStatus state="Success" icon="sap-icon://accept" text="{i18n>readyForTrips}"/>
@@ -30,10 +37,73 @@
       </VBox>
     </u:headerContent>
     <u:sections>
-      <u:ObjectPageSection titleUppercase="false" title="{i18n>contactInfo}">
+      <u:ObjectPageSection titleUppercase="false" title="{i18n>generalInfo}">
         <u:subSections>
-          <u:ObjectPageSubSection titleUppercase="false" title="{i18n>socialNetworks}">
-
+          <u:ObjectPageSubSection titleUppercase="false" title="{i18n>about}">
+            <FormattedText htmlText="{i18n>aboutInfo}"/>
+          </u:ObjectPageSubSection>
+          <u:ObjectPageSubSection mode="Expanded" titleUppercase="false" title="{i18n>technologies}">
+            <Table autoPopinMode="true" fixedLayout="false"
+              items="{state>/technologies}">
+              <columns>
+                <Column width="200px" importance="High"><Label design="Bold" text="{i18n>name}"/></Column>
+                <Column importance="Low"><Label design="Bold" text="{i18n>desc}"/></Column>
+                <Column hAlign="Center" importance="Medium">
+                  <VBox>
+                    <Label design="Bold" text="{i18n>exp}"/>
+                    <Label design="Bold" text="({i18n>years})"/>
+                  </VBox>
+                </Column>
+              </columns>
+              <ColumnListItem highlight="Success">
+                <HBox alignItems="Center" class="sapUiTinyMarginTop">
+                  <Avatar showBorder="true" displaySize="S" src="{state>img}" class="white-bg sapUiTinyMarginEnd"/>
+                  <ObjectIdentifier title="{state>name}"/>
+                </HBox>
+                <Text text="{state>desc}"/>
+                <ObjectIdentifier title="{state>exp}"/>
+              </ColumnListItem>
+            </Table>
+          </u:ObjectPageSubSection>
+        </u:subSections>
+      </u:ObjectPageSection>
+      <u:ObjectPageSection titleUppercase="false" title="{i18n>profInfo}">
+        <u:subSections>
+          <u:ObjectPageSubSection titleUppercase="false"  title="{i18n>education}">
+            <form:SimpleForm columnsM="2" layout="ColumnLayout" editable="False">
+              <Label text="{i18n>nameOfInst}"/>
+              <Link wrapping="true" emphasized="true" target="_blank" href="https://en.belstu.by/" text="{i18n>bstu}"/>
+              <Label text="{i18n>studyPeriod}"/>
+              <Text class="text-bold" text="{i18n>studyFrom} - {i18n>studyTo}"/>
+              <Label text="{i18n>avrScore}"/>
+              <Text class="text-bold" text="6.7"/>
+              <Label text="{i18n>studyForm}"/>
+              <Text class="text-bold" text="{i18n>fullTime}"/>
+              <Label text="{i18n>paymentForm}"/>
+              <Text class="text-bold" text="{i18n>free}"/>
+              <Label text="{i18n>specialty}"/>
+              <Text class="text-bold" text="{i18n>isit}"/>
+            </form:SimpleForm>
+          </u:ObjectPageSubSection>
+          <u:ObjectPageSubSection titleUppercase="false"  title="{i18n>foreignLanguages}">
+            <form:SimpleForm layout="ColumnLayout">
+              <Label text="{i18n>eng}"/>
+              <Text class="text-bold" text="B2"/>
+            </form:SimpleForm>
+          </u:ObjectPageSubSection>
+          <u:ObjectPageSubSection titleUppercase="false" title="{i18n>jobExp}">
+            <Table autoPopinMode="true" fixedLayout="false" items="{state>/jobs}">
+              <columns>
+                <Column><Label design="Bold" text="{i18n>company}"/></Column>
+                <Column><Label design="Bold" text="{i18n>jobTitle}"/></Column>
+                <Column><Label design="Bold" text="{i18n>jobDesc}"/></Column>
+              </columns>
+              <ColumnListItem>
+                <Link href="{state>link}" target="_blank" emphasized="true" text="{state>company}"/>
+                <Text text="{state>jobTitle}"/>
+                <Text text="{state>jobDesc}"/>
+              </ColumnListItem>
+            </Table>
           </u:ObjectPageSubSection>
         </u:subSections>
       </u:ObjectPageSection>
