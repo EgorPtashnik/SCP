@@ -6,7 +6,9 @@ sap.ui.define([
 
   return BaseController.extend("aboutapp.controller.Home", {
     onInit() {
+      const sRootPath = $.sap.getModulePath("aboutapp");
       const oState = {
+        root: sRootPath,
         email: "egor.ptashnik.webdev@gmail.com",
         phone: "+375-29-978-46-60",
         time: new Date(),
@@ -15,37 +17,37 @@ sap.ui.define([
             name: "SAPUI5",
             desc: this.getResourceBundle().getText("sapui5desc"),
             exp: "2+",
-            img: "resources/img/UI5.jpg"
+            img: sRootPath + "/img/UI5.jpg"
           },
           {
             name: "NodeJS",
             desc: this.getResourceBundle().getText("nodejsdesc"),
             exp: "2+",
-            img: "resources/img/nodejs.png"
+            img: sRootPath + "/img/nodejs.png"
           },
           {
             name: "ExpressJS",
             desc: this.getResourceBundle().getText("expressdesc"),
             exp: "2+",
-            img: "resources/img/express.png"
+            img: sRootPath + "/img/express.png"
           },
           {
             name: "SAP Cloud Application Programming Model",
             desc: this.getResourceBundle().getText("capdesc"),
             exp: "2+",
-            img: "resources/img/cap.png"
+            img: sRootPath + "/img/cap.png"
           },
           {
             name: "Cloud Foundry",
             desc: this.getResourceBundle().getText("cfdesc"),
             exp: "2+",
-            img: "resources/img/cloud-foundry.png"
+            img: sRootPath + "/img/cloud-foundry.png"
           },
           {
             name: "React",
             desc: this.getResourceBundle().getText("reactdesc"),
             exp: "1+",
-            img: "resources/img/react.png"
+            img: sRootPath + "/img/react.png"
           },
         ],
         dateOfBirth: "17.10.1997",

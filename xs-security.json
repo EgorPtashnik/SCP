@@ -1,0 +1,34 @@
+{
+  "xsappname": "showcase",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "Admin scope for accessing the FE management app"
+    },
+    {
+      "name": "uaa.user",
+      "description": "XSUAA Scope"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "AdminRoleTemplate",
+      "description": "For full write access to the datamodel",
+      "scope-references": [
+        "$XSAPPNAME.admin",
+        "uaa.user"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "DataAdmin",
+      "description": "Data Admin Role Collection",
+      "role-template-references": [
+        "$XSAPPNAME.AdminRoleTemplate"
+      ]
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 {
-  "_version": "1.0.0",
+  "_version": "3.0.0",
   "identification": {
     "id": "abaa76eb-2cc5-446e-819c-87fcb4dec8ab-1591076327724",
     "entityType": "bundle"
   },
   "payload": {
     "catalogs": [{
-      "_version": "1.0.0",
+      "_version": "3.0.0",
       "identification": {
         "id": "showcase_catalog",
         "title": "{{title}}",
@@ -18,7 +18,7 @@
       }
     }],
     "groups": [{
-      "_version": "1.0.0",
+      "_version": "3.0.0",
       "identification": {
         "id": "showcase_group",
         "title": "{{title}}",

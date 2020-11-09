@@ -15,6 +15,7 @@ modules:
       memory: 512M
       instances: 1
     requires:
+      - name: showcase_uaa
       - name: showcase_html5_repo_runtime
       - name: showcase_portal
     build-parameters:
@@ -41,6 +42,7 @@ modules:
       memory: 128M
       buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
     requires:
+      - name: showcase_uaa
       - name: showcase_html5_repo_host
       - name: showcase_ui_deployer
       - name: showcase_portal
@@ -65,3 +67,10 @@ resources:
     parameters:
       service-plan: app-runtime
       service: html5-apps-repo
+
+  - name: showcase_uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa

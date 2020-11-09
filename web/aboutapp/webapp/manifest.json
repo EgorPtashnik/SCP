@@ -42,6 +42,14 @@
       "compact": true,
       "cozy": true
     },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",

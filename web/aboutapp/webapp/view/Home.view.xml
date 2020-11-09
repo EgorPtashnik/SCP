@@ -8,22 +8,22 @@
       <u:ObjectPageHeader
         objectTitle="{i18n>title}"
         objectSubtitle="{i18n>subtitle}"
-        objectImageURI="resources/img/avatar.jpeg"
+        objectImageURI="{state>/root}/img/avatar.jpeg"
         objectImageAlt="{i18n>title}}"
         objectImageShape="Circle">
         <u:ObjectPageHeaderActionButton press="handleSendEmail" tooltip="{i18n>sendMail}" icon="sap-icon://email"/>
       </u:ObjectPageHeader>
     </u:headerTitle>
     <u:headerContent>
-      <Avatar showBorder="true" displaySize="XL" src="resources/img/avatar.jpeg"/>
+      <Avatar showBorder="true" displaySize="XL" src="{state>/root}/img/avatar.jpeg"/>
       <VBox>
         <ObjectStatus title="{i18n>email}" text="{state>/email}"/>
         <ObjectStatus title="{i18n>phone}" text="{state>/phone}"/>
         <ObjectStatus title="{i18n>dateOfBirth}" text="{state>/dateOfBirth}"/>
         <HBox>
-          <Image press="handleSocialNetworkPress(0)" src="resources/img/linkedin.svg" height="18px" width="18px"/>
-          <Image press="handleSocialNetworkPress(1)" src="resources/img/vk.svg" width="18px" height="18px" class="sapUiTinyMarginBeginEnd"/>
-          <Image press="handleSocialNetworkPress(2)" src="resources/img/instagram.svg" height="18px" width="18px"/>
+          <Image press="handleSocialNetworkPress(0)" src="{state>/root}/img/linkedin.svg" height="18px" width="18px"/>
+          <Image press="handleSocialNetworkPress(1)" src="{state>/root}/img/vk.svg" width="18px" height="18px" class="sapUiTinyMarginBeginEnd"/>
+          <Image press="handleSocialNetworkPress(2)" src="{state>/root}/img/instagram.svg" height="18px" width="18px"/>
         </HBox>
       </VBox>
       <VBox>
