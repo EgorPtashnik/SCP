@@ -1,0 +1,86 @@
+{
+  "_version": "1.0.0",
+  "sap.app": {
+    "id": "notifications_toolkit",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "crossNavigation": {
+      "inbounds": {
+        "display": {
+          "signature": {
+            "parameters": {}
+          },
+          "semanticObject": "notifications_toolkit",
+          "action": "manage",
+          "title": "{{appTitle}}",
+          "icon": "sap-icon://hint"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "notifications_toolkit.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "idApp"
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "notifications_toolkit.i18n.i18n"
+        }
+      }
+    },
+    "resources": {},
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "notifications_toolkit.view",
+        "controlId": "idApp",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "home",
+          "pattern": "",
+          "target": "home"
+        }
+      ],
+      "targets": {
+        "home": {
+          "viewType": "XML",
+          "viewName": "Home"
+        }
+      }
+    }
+  }
+}
