@@ -7,8 +7,10 @@
     "deploy": "run-s build:mta deploy:cf",
     "deploy:cf": "cross-var cf deploy mta_archives/ShowcaseProject_$npm_package_version.mtar",
     "build:mta": "mbt build",
-    "serve:ui": "run-p serve:aboutapp",
-    "build:ui": "run-p build:aboutapp",
+    "serve:ui": "run-p serve:aboutapp serve:notifications_toolkit",
+    "build:ui": "run-p build:aboutapp build:notifications_toolkit",
+    "serve:notifications_toolkit": "ui5 serve --config web/notifications_toolkit/ui5.yaml",
+    "build:notifications_toolkit": "ui5 build --config web/notifications_toolkit/ui5.yaml --clean-dest --include-task=generateManifestBundle --dest deployer/resources/notifications_toolkit",
     "serve:aboutapp": "ui5 serve --config web/aboutapp/ui5.yaml",
     "build:aboutapp": "ui5 build --config web/aboutapp/ui5.yaml --clean-dest --include-task=generateManifestBundle --dest deployer/resources/aboutapp"
   },

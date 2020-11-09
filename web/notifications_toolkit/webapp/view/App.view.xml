@@ -1,7 +1,5 @@
 <mvc:View controllerName="notifications_toolkit.controller.App" displayBlock="true"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
-  <Shell>
-    <App id="idApp"/>
-  </Shell>
+  <App id="idApp"/>
 </mvc:View>
