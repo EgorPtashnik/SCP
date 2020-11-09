@@ -1,0 +1,13 @@
+{
+  "name": "showcase_ui_deployer",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x.x"
+  },
+  "dependencies": {
+    "@sap/html5-app-deployer": "^2.1.1"
+  },
+  "scripts": {
+    "start": "node node_modules/@sap/html5-app-deployer/index.js"
+  }
+}

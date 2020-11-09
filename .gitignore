@@ -1,2 +1,8 @@
 node_modules
 package-lock.json
+.mta/
+*.mtar
+dist/
+mta_archives/
+deployer/resources/
+gen/

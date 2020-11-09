@@ -1,0 +1,67 @@
+ID: ShowcaseProject
+_schema-version: 3.2.0
+description: Showcase project with using main SAP Cloud Platform technologies
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+
+  - name: showcase_approuter
+    type: nodejs
+    path: approuter
+    parameters:
+      disk-quota: 512M
+      memory: 512M
+      instances: 1
+    requires:
+      - name: showcase_html5_repo_runtime
+      - name: showcase_portal
+    build-parameters:
+      ignore: ["node_modules/"]
+
+  - name: showcase_ui_deployer
+    type: com.sap.html5.application-content
+    path: deployer
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: showcase_html5_repo_host
+    build-parameters:
+      ignore: ["node_modules/"]
+      builder: custom
+      commands:
+        - npm run build:ui --prefix ..
+
+  - name: showcase_flp
+    type: com.sap.portal.content
+    path: flp
+    parameters:
+      memory: 128M
+      buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
+    requires:
+      - name: showcase_html5_repo_host
+      - name: showcase_ui_deployer
+      - name: showcase_portal
+
+resources:
+  - name: showcase_html5_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 5
+
+  - name: showcase_portal
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: standard
+      service: portal
+
+  - name: showcase_html5_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo

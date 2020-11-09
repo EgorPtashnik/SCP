@@ -1,0 +1,13 @@
+{
+  "name": "showcase_flp",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/portal-cf-content-deployer": "^4.9.0-20200908163923"
+  },
+  "scripts": {
+    "start": "node --harmony node_modules/@sap/portal-cf-content-deployer/src/index.js"
+  }
+}
