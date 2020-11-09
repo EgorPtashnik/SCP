@@ -8,7 +8,20 @@
       "version": "1.0.0"
     },
     "title": "{{appTitle}}",
-    "description": "{{appDescription}}"
+    "description": "{{appDescription}}",
+    "crossNavigation": {
+      "inbounds": {
+        "display": {
+          "signature": {
+            "parameters": {}
+          },
+          "semanticObject": "aboutapp",
+          "action": "display",
+          "title": "{{appTitle}}",
+          "icon": "sap-icon://hint"
+        }
+      }
+    }
   },
   "sap.ui": {
     "technology": "UI5",
