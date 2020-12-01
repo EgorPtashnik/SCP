@@ -1,7 +1,7 @@
 {
   "_version": "1.0.0",
   "sap.app": {
-    "id": "notifications_toolkit",
+    "id": "todoapp",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -15,10 +15,10 @@
           "signature": {
             "parameters": {}
           },
-          "semanticObject": "notifications_toolkit",
+          "semanticObject": "todoapp",
           "action": "manage",
           "title": "{{appTitle}}",
-          "icon": "sap-icon://hint"
+          "icon": "sap-icon://activities"
         }
       }
     }
@@ -33,7 +33,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "notifications_toolkit.view.App",
+      "viewName": "todoapp.view.App",
       "type": "XML",
       "async": true,
       "id": "idApp"
@@ -54,16 +54,20 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "notifications_toolkit.i18n.i18n"
+          "bundleName": "todoapp.i18n.i18n"
         }
       }
     },
-    "resources": {},
+    "resources": {
+      "css": [
+        { "uri": "css/style.css"}
+      ]
+    },
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "viewPath": "notifications_toolkit.view",
+        "viewPath": "todoapp.view",
         "controlId": "idApp",
         "controlAggregation": "pages",
         "async": true

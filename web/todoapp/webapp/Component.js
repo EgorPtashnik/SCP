@@ -1,10 +1,10 @@
 sap.ui.define([
   "sap/ui/core/UIComponent",
-  "notifications_toolkit/model/models"
+  "todoapp/model/models"
 ], function(UIComponent, models) {
   "use strict";
 
-  return UIComponent.extend("notifications_toolkit.Component", {
+  return UIComponent.extend("todoapp.Component", {
 
     metadata: {
       manifest: "json"

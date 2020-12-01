@@ -5,7 +5,7 @@ sap.ui.define([
 ], function(Controller, History, UIComponent) {
   "use strict";
 
-  return Controller.extend("notifications_toolkit.controller.BaseController", {
+  return Controller.extend("todoapp.controller.BaseController", {
     getModel(sName) {
       return this.getView().getModel(sName)
     },
