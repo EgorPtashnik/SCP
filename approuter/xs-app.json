@@ -4,5 +4,13 @@
   "logout": {
     "logoutEndpoint": "/do/logout"
   },
-  "routes": []
+  "routes": [
+    {
+      "source": "^/odata/(.*)$",
+      "target": "$1",
+      "authenticationType": "xsuaa",
+      "destination": "ShowcaseService",
+      "csrfProtection": true
+    }
+  ]
 }

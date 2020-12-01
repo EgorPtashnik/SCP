@@ -9,6 +9,15 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
+    "dataSources": {
+      "odata": {
+        "uri": "/odata/todo/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    },
     "crossNavigation": {
       "inbounds": {
         "display": {
@@ -43,7 +52,7 @@
       "cozy": true
     },
     "dependencies": {
-      "minUI5Version": "1.60.0",
+      "minUI5Version": "1.84.1",
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
@@ -55,6 +64,14 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "todoapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "odata",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server"
         }
       }
     },

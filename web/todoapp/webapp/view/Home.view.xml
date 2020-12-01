@@ -1,5 +1,51 @@
 <mvc:View controllerName="todoapp.controller.Home" displayBlock="true"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc">
-
+  <Page title="{i18n>appTitle}">
+    <headerContent>
+      <Button text="{i18n>clearCompleted}" enabled="{state>/enableClearButton}" press="handleClearCompleted"/>
+    </headerContent>
+    <VBox fitContainer="true" alignItems="Center">
+      <VBox width="300px" class="sapUiTinyMargin wrapper sapUiLargeMarginTop">
+        <Title titleStyle="H1" text="{i18n>todo} ({state>/itemsCount} {i18n>items})"/>
+        <Input type="Text"
+          showValueHelp="true"
+          valueHelpRequest="handleSubmitTodo"
+          submit="handleSubmitTodo"
+          valueHelpIconSrc="sap-icon://add"
+          width="100%"
+          class="sapUiTinyMarginBottom"
+          placeholder="{i18n>newTodo}"/>
+        <List id="idTodoList"
+          items="{path: '/Todos', sorter: {path: 'createdAt'}}"
+          selectionChange="handleTodoUpdate"
+          noDataText="{i18n>noItems}"
+          mode="MultiSelect">
+          <items>
+            <CustomListItem selected="{isDone}">
+              <Text text="{text}" class="sapUiSmallMargin">
+                <customData>
+                  <core:CustomData key="style-todotext" value="{=${isDone}? 'completed' : 'active'}" writeToDom="true"/>
+                </customData>
+              </Text>
+            </CustomListItem>
+          </items>
+        </List>
+      </VBox>
+    </VBox>
+    <footer>
+      <Toolbar>
+        <HBox width="100%" justifyContent="Center" alignItems="Center">
+          <SegmentedButton selectedKey="0" selectionChange="handleFilterChange">
+            <items>
+              <SegmentedButtonItem key="0" width="90px" text="{i18n>all}"/>
+              <SegmentedButtonItem key="1" width="90px" text="{i18n>active}"/>
+              <SegmentedButtonItem key="2" width="90px" text="{i18n>completed}"/>
+            </items>
+          </SegmentedButton>
+        </HBox>
+      </Toolbar>
+    </footer>
+  </Page>
 </mvc:View>

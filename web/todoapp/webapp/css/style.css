@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 600px;
+}
+
+[data-style-todotext=completed] {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+[data-style-todotext=active] {
+  text-decoration: none;
+}

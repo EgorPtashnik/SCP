@@ -13,3 +13,12 @@ server:
       configuration:
         port: 35732
         watchPath: "web/todoapp/webapp"
+    - name: ui5-middleware-cfdestination
+      afterMiddleware: compression
+      configuration:
+        debug: true
+        port: 1092
+        xsappJson: approuter/xs-app.json
+        destinations:
+          - name: "ShowcaseService"
+            url: "http://localhost:4004/"

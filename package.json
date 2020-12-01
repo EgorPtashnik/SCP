@@ -4,12 +4,14 @@
   "scripts": {
     "deploy": "run-s build:mta deploy:cf",
     "deploy:cf": "cross-var cf deploy mta_archives/ShowcaseProject_$npm_package_version.mtar",
+    "deploy:cds": "npx cds deploy --to sqlite",
     "build:mta": "mbt build",
+    "serve:server": "npx cds watch",
     "serve:ui": "run-p serve:aboutapp serve:todoapp",
     "build:ui": "run-p build:aboutapp build:todoapp",
-    "serve:todoapp": "ui5 serve --config web/todoapp/ui5.yaml",
+    "serve:todoapp": "ui5 serve --config web/todoapp/ui5.yaml --port 8081 --open index.html",
     "build:todoapp": "ui5 build --config web/todoapp/ui5.yaml --clean-dest --include-task=generateManifestBundle --dest deployer/resources/todoapp",
-    "serve:aboutapp": "ui5 serve --config web/aboutapp/ui5.yaml",
+    "serve:aboutapp": "ui5 serve --config web/aboutapp/ui5.yaml --port 8080 --open index.html",
     "build:aboutapp": "ui5 build --config web/aboutapp/ui5.yaml --clean-dest --include-task=generateManifestBundle --dest deployer/resources/aboutapp"
   },
   "repository": {
@@ -29,14 +31,27 @@
     "cross-var": "^1.1.0",
     "mbt": "^1.0.16",
     "npm-run-all": "^4.1.5",
-    "ui5-middleware-livereload": "^0.4.3"
+    "sqlite3": "^5.0.0",
+    "ui5-middleware-cfdestination": "^0.2.4",
+    "ui5-middleware-livereload": "^0.4.3",
+    "ui5-middleware-simpleproxy": "^0.6.0"
   },
   "ui5": {
     "dependencies": [
-      "ui5-middleware-livereload"
+      "ui5-middleware-livereload",
+      "ui5-middleware-cfdestination",
+      "ui5-middleware-simpleproxy"
     ]
   },
   "dependencies": {
     "@sap/cds": "^4.3.1"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": "*"
+      }
+    }
   }
 }

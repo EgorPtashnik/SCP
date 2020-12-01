@@ -6,3 +6,4 @@ dist/
 mta_archives/
 deployer/resources/
 gen/
+*.db
