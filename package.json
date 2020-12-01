@@ -5,6 +5,7 @@
     "deploy": "run-s build:mta deploy:cf",
     "deploy:cf": "cross-var cf deploy mta_archives/ShowcaseProject_$npm_package_version.mtar",
     "deploy:cds": "npx cds deploy --to sqlite",
+    "build:cds": "cds build/all --clean",
     "build:mta": "mbt build",
     "serve:server": "npx cds watch",
     "serve:ui": "run-p serve:aboutapp serve:todoapp",

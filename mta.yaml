@@ -14,10 +14,44 @@ modules:
       disk-quota: 512M
       memory: 512M
       instances: 1
+    deployed-after:
+      - showcase_srv
     requires:
       - name: showcase_uaa
       - name: showcase_html5_repo_runtime
       - name: showcase_portal
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: ~{url}
+    build-parameters:
+      ignore: ["node_modules/"]
+
+  - name: showcase_db_deployer
+    type: hdb
+    path: db
+    parameters:
+      app-name: showcase_db_deployer
+    requires:
+      - name: showcase_hdi_container
+    build-parameters:
+      ignore: ["node_modules/"]
+      builder: custom
+      commands:
+        - npm run build:cds --prefix ..
+
+  - name: showcase_srv
+    type: nodejs
+    path: srv
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: showcase_hdi_container
     build-parameters:
       ignore: ["node_modules/"]
 
@@ -75,10 +109,10 @@ resources:
       service-plan: application
       service: xsuaa
 
-  - name: showcase_db_hdi_container
-    type: org.cloudfoundry.managed-service
+  - name: showcase_hdi_container
+    type: com.sap.xs.hdi-container
     parameters:
-      serviceplan: hdi-shared
+      service-plan: hdi-shared
       service: hanatrial
     properties:
       hdi-container-name: ${service-name}

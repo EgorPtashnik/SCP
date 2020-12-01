@@ -30,6 +30,10 @@
           "id": "aboutapp-0-1111111111111",
           "appId": "aboutapp",
           "vizId": "aboutapp-display"
+        }, {
+          "id": "todoapp-0-11111111111112",
+          "appId": "todoapp",
+          "vizId": "todoapp-manage"
         }]
       }
     }],
