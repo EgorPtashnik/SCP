@@ -74,3 +74,11 @@ resources:
       path: ./xs-security.json
       service-plan: application
       service: xsuaa
+
+  - name: showcase_db_hdi_container
+    type: org.cloudfoundry.managed-service
+    parameters:
+      serviceplan: hdi-shared
+      service: hanatrial
+    properties:
+      hdi-container-name: ${service-name}

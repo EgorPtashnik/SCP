@@ -1,0 +1,66 @@
+{
+  "auth": {
+    "passport": {
+      "strategy": "mock",
+      "users": {
+        "alice": {
+          "roles": [
+            "admin"
+          ]
+        },
+        "scott": {
+          "roles": [
+            "user"
+          ]
+        }
+      }
+    }
+  },
+  "requires": {
+    "uaa": {
+      "kind": "xsuaa"
+    },
+    "db": {
+      "kind": "sqlite",
+      "model": [
+        "db/",
+        "srv/todoapp.cds"
+      ],
+      "[production]": {
+        "kind": "hana",
+        "model": [
+          "db/",
+          "srv/todoap.cds"
+        ]
+      }
+    }
+  },
+  "odata": {
+    "version": "v4"
+  },
+  "build": {
+    "target": ".",
+    "tasks": [
+      {
+        "for": "hana",
+        "src": "db",
+        "options": {
+          "model": [
+            "db/",
+            "srv/todoapp.cds"
+          ]
+        }
+      },
+      {
+        "for": "node-cf",
+        "src": "srv",
+        "options": {
+          "model": [
+            "db/",
+            "srv/todoapp.cds"
+          ]
+        }
+      }
+    ]
+  }
+}
