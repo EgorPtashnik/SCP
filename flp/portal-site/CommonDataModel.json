@@ -54,26 +54,25 @@
                   "config": {
                     "enableRecentActivity": true,
                     "enableNotificationsUI": true,
+                    "enableNotificationsPreview": true,
+                    "enableSearch": true,
+                    "enablePersonalization": true,
+                    "enableSetTheme": true,
+                    "enableSetLanguage": true,
                     "applications": {
-                      "Shell-home": {
-                        "enableNotificationsPreview": true
-                      },
-                      "enableSearch": true,
-                      "enablePersonalization": true,
-                      "enableSetTheme": true,
-                      "enableSetLanguage": true
+                      "Shell-home": {}
                     }
                   }
                 }
               }
-            }
-          },
-          "services": {
-            "Notifications": {
-              "config": {
-                "enabled": true,
-                "serviceUrl": "/odata/",
-                "pollingIntervalInSeconds": 10
+            },
+            "services": {
+              "Notifications": {
+                "config": {
+                  "enabled": true,
+                  "serviceUrl": "/odata/",
+                  "pollingIntervalInSeconds": 10
+                }
               }
             }
           }
