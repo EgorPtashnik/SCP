@@ -1,5 +1,5 @@
-using { todoapp } from '../db/todoapp';
+using todoapp as db from '../db/todoapp';
 
 service TodoService {
-  entity Todos as projection on todoapp.Todo;
+  entity Todos as projection on db.Todo;
 }

@@ -24,13 +24,15 @@
       "kind": "sqlite",
       "model": [
         "db/",
-        "srv/todoapp.cds"
+        "srv/todoapp.cds",
+        "srv/notification.cds"
       ],
       "[production]": {
         "kind": "hana",
         "model": [
           "db/",
-          "srv/todoap.cds"
+          "srv/todoap.cds",
+          "srv/notification.cds"
         ]
       }
     }
@@ -47,7 +49,8 @@
         "options": {
           "model": [
             "db/",
-            "srv/todoapp.cds"
+            "srv/todoapp.cds",
+            "srv/notification.cds"
           ]
         }
       },
@@ -57,7 +60,8 @@
         "options": {
           "model": [
             "db/",
-            "srv/todoapp.cds"
+            "srv/todoapp.cds",
+            "srv/notification.cds"
           ]
         }
       }
