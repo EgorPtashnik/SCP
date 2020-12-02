@@ -66,6 +66,13 @@ sap.ui.define([
           this.state.setProperty("/enableClearButton", false); return;
         default: return;
       }
+    },
+
+    handleDropItem(oEvent) {
+      const { draggedControl: drag, droppedControl: drop, dropPosition: pos } = oEvent.getParameters();
+      console.log(drag, drop, pos);
+      const iDropIndex = this.oTodoList.indexOfItem(drop);
+      const iDragIndex = this.oTodoList.indexOfItem(drag);
     }
   });
 });
