@@ -24,11 +24,15 @@
           mode="MultiSelect">
           <items>
             <CustomListItem selected="{isDone}">
+            <VBox>
               <Text text="{text}" class="sapUiSmallMargin">
                 <customData>
                   <core:CustomData key="style-todotext" value="{=${isDone}? 'completed' : 'active'}" writeToDom="true"/>
                 </customData>
               </Text>
+              <Label text="{createdAt}" class="sapUiSmallMarginBegin"/>
+              <Label text="{createdBy}" class="sapUiSmallMarginBegin"/>
+            </VBox>
             </CustomListItem>
           </items>
         </List>

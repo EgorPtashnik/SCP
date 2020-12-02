@@ -20,14 +20,24 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "display": {
+        "manage": {
           "signature": {
-            "parameters": {}
+            "parameters": {},
+            "additionalParameters": "allowed"
           },
           "semanticObject": "todoapp",
           "action": "manage",
           "title": "{{appTitle}}",
-          "icon": "sap-icon://activities"
+          "type": "Dynamic",
+          "subTitle": "{{subTitle}}",
+          "info": "1.0.0",
+          "icon": "sap-icon://activities",
+          "displayMode": "ContentMode",
+          "indicatorDataSource": {
+            "dataSource": "odata",
+            "path": "Todos/$count",
+            "refresh": 1000
+          }
         }
       }
     }
