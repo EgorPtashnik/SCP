@@ -7,6 +7,7 @@
     "deploy:cds": "npx cds deploy --to sqlite",
     "build:cds": "cds build/all --clean",
     "build:mta": "mbt build",
+    "serve:local": "run-p serve:ui serve:server",
     "serve:server": "npx cds watch",
     "serve:ui": "run-p serve:aboutapp serve:todoapp",
     "build:ui": "run-p build:aboutapp build:todoapp",
