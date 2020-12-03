@@ -16,5 +16,5 @@ module.exports = async (srv) => {
 
   cds.emit("served", cds.services);
 
-  return app.listen(srv.port || process.emitWarning.PORT || 4004);
+  return app.listen(srv.port || process.env.PORT || 4004);
 };
