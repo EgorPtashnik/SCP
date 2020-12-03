@@ -21,6 +21,8 @@ jobs:
       run: npm install -g mbt
     - name: Install CDS tools
       run: npm install -g @sap/cds-dk
+    - name: Install ui5 cli
+      run: npm install -g @ui5/cli
     # Do not generate package-lock.json
     # See https://blogs.sap.com/2020/07/07/escaping-eintegrity-hell/
     - name: Disable package-lock.json
