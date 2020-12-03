@@ -23,6 +23,8 @@ jobs:
       run: npm install -g @sap/cds-dk
     - name: Install ui5 cli
       run: npm install -g @ui5/cli
+    - name: Install other deps
+      run: npm install -g npm-run-all cross-var
     # Do not generate package-lock.json
     # See https://blogs.sap.com/2020/07/07/escaping-eintegrity-hell/
     - name: Disable package-lock.json
