@@ -22,3 +22,20 @@ service NotificationService {
 }
 
 annotate NotificationService.Notifications with @odata.draft.enabled;
+
+// annotate NotificationService.Notifications with @(
+//   Common : {Label : 'Notifications'},
+//   UI : {
+//     SelectionFields: [
+//       Id,
+//       ParentId,
+//       NotificationTypeId
+//     ],
+//     HeaderInfo: {
+//       TypeName : 'Notification',
+//       TypeNamePlural: 'Notifications',
+//       Title: { Value: SensitiveText },
+//       Description: { Value: Text }
+//     },
+//   }
+// );
