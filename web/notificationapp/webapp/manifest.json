@@ -1,0 +1,137 @@
+{
+  "_version": "1.0.0",
+  "sap.app": {
+    "id": "notificationapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "odata": {
+        "uri": "/odata/notification/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "manage": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "notificationapp",
+          "action": "manage",
+          "title": "{{appTitle}}",
+          "type": "Dynamic",
+          "subTitle": "{{subTitle}}",
+          "info": "1.0.0",
+          "icon": "sap-icon://bell",
+          "displayMode": "ContentMode",
+          "indicatorDataSource": {
+            "dataSource": "odata",
+            "path": "Notifications/$count",
+            "refresh": 1000
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "dependencies": {
+      "minUI5Version": "1.84.1",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "notificationapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "odata",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "NotificationsList",
+          "target": "NotificationsList"
+        },
+        {
+          "pattern": "Notifications({key}):?query:",
+          "name": "NotificationsObjectPage",
+          "target": "NotificationsObjectPage"
+        }
+      ],
+      "targets": {
+        "NotificationsList": {
+          "type": "Component",
+          "id": "NotificationsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "Notifications",
+              "variantManagement": "Page",
+              "navigation": {
+                "Notifications": {
+                  "detail": {
+                    "route": "NotificationsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "NotificationsObjectPage": {
+          "type": "Component",
+          "id": "NotificationsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "Notifications",
+              "navigation": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+}
+}

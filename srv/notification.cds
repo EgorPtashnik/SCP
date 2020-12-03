@@ -20,3 +20,5 @@ service NotificationService {
   function GetBadgeNumber() returns Integer not null;
   function GetBadgeNumberByIntent(NavigationIntent: String not null) returns Integer not null;
 }
+
+annotate NotificationService.Notifications with @odata.draft.enabled;

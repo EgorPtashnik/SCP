@@ -34,6 +34,10 @@
           "id": "todoapp-0-11111111111112",
           "appId": "todoapp",
           "vizId": "todoapp-manage"
+        }, {
+          "id": "notificationapp-0-11111111111112",
+          "appId": "notificationapp",
+          "vizId": "notificationapp-manage"
         }]
       }
     }],
