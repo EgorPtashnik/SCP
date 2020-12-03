@@ -23,19 +23,41 @@ service NotificationService {
 
 annotate NotificationService.Notifications with @odata.draft.enabled;
 
-// annotate NotificationService.Notifications with @(
-//   Common : {Label : 'Notifications'},
-//   UI : {
-//     SelectionFields: [
-//       Id,
-//       ParentId,
-//       NotificationTypeId
-//     ],
-//     HeaderInfo: {
-//       TypeName : 'Notification',
-//       TypeNamePlural: 'Notifications',
-//       Title: { Value: SensitiveText },
-//       Description: { Value: Text }
-//     },
-//   }
-// );
+annotate NotificationService.Notifications with @(
+  Common : {Label : 'Notifications'},
+  UI : {
+    SelectionFields: [
+      Id,
+      ParentId,
+      NotificationTypeId
+    ],
+    HeaderInfo: {
+      TypeName : 'Notification',
+      TypeNamePlural: 'Notifications',
+      Title: { Value: SensitiveText },
+      Description: { Value: Text }
+    },
+    LineItem: [
+      {Value: Id},
+      {Value: OriginId},
+      {Value: CreatedAt},
+      {Value: IsActionable},
+      {Value: IsRead},
+      {Value: IsGroupable},
+      {Value: IsGroupHeader},
+      {Value: NavigationTargetAction},
+      {Value: NavigationTargetObject},
+      {Value: NavigationIntent},
+      {Value: NotificationTypeId},
+      {Value: NotificationTypeKey},
+      {Value: ParentId},
+      {Value: Priority},
+      {Value: SensitiveText},
+      {Value: Text},
+      {Value: GroupHeaderText},
+      {Value: NotificationCount},
+      {Value: SubTitle},
+      {Value: NotificationTypeDesc}
+    ],
+  }
+);
