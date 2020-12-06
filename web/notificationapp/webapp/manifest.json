@@ -9,6 +9,15 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
+    "dataSources": {
+      "odata": {
+        "uri": "/odata/notification",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    },
     "crossNavigation": {
       "inbounds": {
         "display": {
@@ -18,7 +27,15 @@
           "semanticObject": "notificationapp",
           "action": "manage",
           "title": "{{appTitle}}",
-          "icon": "sap-icon://hint"
+          "icon": "sap-icon://bell",
+          "type": "Dynamic",
+          "info": "1.0.0",
+          "displayMode": "ContentMode",
+          "indicatorDataSource": {
+            "dataSource": "odata",
+            "path": "Notifications/$count",
+            "refresh": 1000
+          }
         }
       }
     }
@@ -55,6 +72,14 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "notificationapp.i18n.i18n"
+        },
+        "": {
+          "dataSource": "odata",
+          "preload": true,
+          "settings": {
+            "synchronizationMode": "None",
+            "operationMode": "Server"
+          }
         }
       }
     },
