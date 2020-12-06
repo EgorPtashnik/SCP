@@ -1,0 +1,5 @@
+<mvc:View controllerName="notificationapp.controller.App" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <App id="idApp"/>
+</mvc:View>

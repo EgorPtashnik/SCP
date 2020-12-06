@@ -11,13 +11,13 @@ server:
     - name: ui5-middleware-livereload
       afterMiddleware: compression
       configuration:
-        port: 35733
+        port: 35732
         watchPath: "web/notificationapp/webapp"
     - name: ui5-middleware-cfdestination
       afterMiddleware: compression
       configuration:
         debug: true
-        port: 1093
+        port: 1092
         xsappJson: approuter/xs-app.json
         destinations:
           - name: "ShowcaseService"
