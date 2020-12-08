@@ -1,7 +1,72 @@
 <mvc:View controllerName="notificationapp.controller.Notification" displayBlock="true"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc">
-  <Page showHeader="false">
-    <Text text="notification page"/>
+  <Page>
+    <headerContent>
+      <Button text="{=!${state>/notification/new}? ${i18n>show} : ${i18n>hide}} {i18n>form}"
+        press="toggleForm"/>
+    </headerContent>
+    <core:Fragment fragmentName="notificationapp.view.fragments.Notification" type="XML"/>
+    <Table visible="{=!${state>/notification/new}}" items="{odata>/Notifications}" autoPopinMode="true">
+      <headerToolbar>
+        <Toolbar>
+          <Title titleStyle="H3" text="{i18n>nNotifications}"/>
+          <ToolbarSpacer/>
+        </Toolbar>
+      </headerToolbar>
+      <columns>
+        <Column><Label design="Bold" text="Id"/></Column>
+        <Column><Label design="Bold" text="OriginId"/></Column>
+        <Column><Label design="Bold" text="CreatedAt"/></Column>
+        <Column><Label design="Bold" text="IsActionable"/></Column>
+        <Column><Label design="Bold" text="IsRead"/></Column>
+        <Column><Label design="Bold" text="IsGroupable"/></Column>
+        <Column><Label design="Bold" text="IsGroupHeader"/></Column>
+        <Column><Label design="Bold" text="NavigationTargetAction"/></Column>
+        <Column><Label design="Bold" text="NavigationTargetObject"/></Column>
+        <Column><Label design="Bold" text="NavigationIntent"/></Column>
+        <Column><Label design="Bold" text="NotificationTypeId"/></Column>
+        <Column><Label design="Bold" text="NotificationTypeKey"/></Column>
+        <Column><Label design="Bold" text="ParentId"/></Column>
+        <Column><Label design="Bold" text="Priority"/></Column>
+        <Column><Label design="Bold" text="SensitiveText"/></Column>
+        <Column><Label design="Bold" text="Text"/></Column>
+        <Column><Label design="Bold" text="GroupHeaderText"/></Column>
+        <Column><Label design="Bold" text="NotificationCount"/></Column>
+        <Column><Label design="Bold" text="SubTitle"/></Column>
+        <Column><Label design="Bold" text="NotificationTypeDesc"/></Column>
+        <Column><Label design="Bold" text="Actor_Id"/></Column>
+        <Column><Label design="Bold" text="Actor_DisplayText"/></Column>
+        <Column><Label design="Bold" text="Actor_ImageSource"/></Column>
+      </columns>
+      <ColumnListItem>
+        <cells>
+          <ObjectIdentifier title="{Id}"/>
+          <Text text="{OriginId}"/>
+          <Text text="{CreatedAt}"/>
+          <Text text="{IsActionable}"/>
+          <Text text="{IsRead}"/>
+          <Text text="{IsGroupable}"/>
+          <Text text="{IsGroupHeader}"/>
+          <Text text="{NavigationTargetAction}"/>
+          <Text text="{NavigationTargetObject}"/>
+          <Text text="{NavigationIntent}"/>
+          <Text text="{NotificationTypeId}"/>
+          <Text text="{NotificationTypeKey}"/>
+          <Text text="{ParentId}"/>
+          <Text text="{Priority}"/>
+          <Text text="{SensitiveText}"/>
+          <Text text="{Text}"/>
+          <Text text="{GroupHeaderText}"/>
+          <Text text="{NotificationCount}"/>
+          <Text text="{SubTitle}"/>
+          <Text text="{NotificationTypeDesc}"/>
+          <Text text="{Actor_Id}"/>
+          <Text text="{Actor_DisplayText}"/>
+          <Text text="{Actor_ImageSource}"/>
+        </cells>
+      </ColumnListItem>
+    </Table>
   </Page>
 </mvc:View>

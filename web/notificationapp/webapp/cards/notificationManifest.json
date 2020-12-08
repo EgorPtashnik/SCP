@@ -1,0 +1,36 @@
+{
+  "sap.app": {
+    "type": "card",
+    "id": "notification.card",
+    "dataSources": {
+      "odata": {
+        "uri": "/odata/notification",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.card": {
+    "type": "List",
+    "header": {
+      "data": {
+        "request": {
+          "url": "{{dataSources.odata.uri}}/Notifications/$count"
+        }
+      },
+      "title": "{i18n>nNotifications}",
+      "subTitle": "{i18n>appTitle}",
+      "icon": {
+        "src": "sap-icon://ui-notifications"
+      },
+      "status": {
+        "text": "{}"
+      }
+    },
+    "content": {
+
+    }
+  }
+}

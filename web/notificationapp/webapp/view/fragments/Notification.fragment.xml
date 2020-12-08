@@ -1,0 +1,78 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+  <Title visible="{state>/notification/new}"
+    titleStyle="H3"
+    text="{i18n>createNewNotification}"
+    class="sapUiSmallMargin"/>
+  <f:SimpleForm visible="{state>/notification/new}"
+    editable="true"
+    layout="ColumnLayout"
+    columnsM="2"
+    columnsL="3"
+    columnsXL="4">
+
+    <core:Title text="{i18n>notificationMandatoryFields}"/>
+    <Label design="Bold" required="true" text="Id: UUID ({i18n>generated})"/>
+    <Input type="Text" editable="false" value="{state>/notification/data/Id}"/>
+    <Label design="Bold" required="true" text="CreatedAt: DateTime"/>
+    <Input type="Text" value="{state>/notification/data/CreatedAt}"/>
+    <Label design="Bold" required="true" text="SensitiveText: String"/>
+    <Input type="Text" value="{state>/notification/data/SensitiveText}"/>
+    <Label design="Bold" required="true" text="Text: String"/>
+    <Input type="Text" value="{state>/notification/data/Text}"/>
+    <Label design="Bold" required="true" text="Priority: String(20)"/>
+    <Select selectedKey="{state>/notification/data/Priority}"
+      items="{state>/notification/priorities}">
+      <core:Item key="{state>}" text="{state>}"/>
+    </Select>
+    <Label design="Bold" required="true" text="IsRead: Boolean"/>
+    <CheckBox selected="{state>/notification/data/IsRead}" text="Default: False"/>
+    <Label design="Bold" required="true" text="IsGroupable: Boolean"/>
+    <CheckBox selected="{state>/notification/data/IsGroupable}" text="Default: False"/>
+
+    <core:Title text="{i18n>notificationGroupFields}"/>
+    <Label design="Bold" required="true" text="IsGroupHeader: Boolean"/>
+    <CheckBox selected="{state>/notification/data/IsGroupHeader}" text="Default: False"/>
+    <Label design="Bold" required="true" text="GroupHeaderText: String"/>
+    <Input type="Text" value="{state>/notification/data/GroupHeaderText}"/>
+    <Label design="Bold" required="true" text="NavigationIntent: String"/>
+    <Input type="Text" value="{state>/notification/data/NavigationIntent}"/>
+    <Label design="Bold" required="true" text="NotificationCount : Integer"/>
+    <Input type="Number" value="{state>/notification/data/NotificationCount}"/>
+    <Label design="Bold" required="true" text="OriginId: String"/>
+    <Input type="Text" value="{state>/notification/data/OriginId}"/>
+
+    <core:Title text="{i18n>notificationActionFields}"/>
+    <Label design="Bold" required="true" text="IsActionable: Boolean"/>
+    <CheckBox selected="{state>/notification/data/IsActionable}" text="Default: False"/>
+    <Label design="Bold" required="true" text="NavigationTargetAction: String"/>
+    <Input type="Text" value="{state>/notification/data/NavigationTargetAction}"/>
+    <Label design="Bold" required="true" text="NotificationTypeId: String"/>
+    <Input type="Text" value="{state>/notification/data/NotificationTypeId}"/>
+    <Label design="Bold" required="true" text="NotificationTypeKey: String(32)"/>
+    <Input type="Text" value="{state>/notification/data/NotificationTypeKey}"/>
+    <Label design="Bold" required="true" text="NavigationTargetObject: String"/>
+    <Input type="Text" value="{state>/notification/data/NavigationTargetObject}"/>
+
+    <core:Title text="{i18n>notificationNonMandatoryFields}"/>
+    <Label design="Bold" text="ParentId: UUID"/>
+    <Input type="Text" value="{state>/notification/data/ParentId}"/>
+    <Label design="Bold" text="SubTitle: String"/>
+    <Input type="Text" value="{state>/notification/data/SubTitle}"/>
+    <Label design="Bold" text="NotificationTypeDesc: String(40)"/>
+    <Input type="Text" value="{state>/notification/data/NotificationTypeDesc}"/>
+
+    <core:Title text="{i18n>notificationActorFields}"/>
+    <Label design="Bold" required="true" text="Actor_Id: String(20)"/>
+    <Input type="Text" value="{state>/notification/data/Actor_Id}"/>
+    <Label design="Bold" required="true" text="Actor_DisplayText: String(120)"/>
+    <Input type="Text" value="{state>/notification/data/Actor_DisplayText}"/>
+    <Label design="Bold" required="true" text="Actor_ImageSource: String"/>
+    <Input type="Text" value="{state>/notification/data/Actor_ImageSource}"/>
+  </f:SimpleForm>
+  <VBox visible="{state>/notification/new}" class="sapUiTinyMarginBeginEnd">
+    <Button width="100%"
+      press="handleSubmitNewNotification"
+      text="{i18n>submit}"
+      type="Emphasized"/>
+  </VBox>
+</core:FragmentDefinition>

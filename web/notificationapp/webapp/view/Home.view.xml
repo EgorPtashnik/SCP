@@ -1,7 +1,15 @@
 <mvc:View controllerName="notificationapp.controller.Home" displayBlock="true"
   xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:w="sap.ui.integration.widgets"
   xmlns:mvc="sap.ui.core.mvc">
   <Page showHeader="false">
-    <Text text="home page"/>
+    <f:GridContainer>
+      <w:Card class="sapUiTinyMargin" manifest="./cards/notificationManifest.json">
+        <w:layoutData>
+          <f:GridContainerItemLayoutData columns="4"/>
+        </w:layoutData>
+      </w:Card>
+    </f:GridContainer>
   </Page>
 </mvc:View>
