@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseController) {
   "use strict";
 
-  return BaseController.extend("notificationapp.controller.Home", {
+  return BaseController.extend("notificationapp.controller.Bulk", {
     onInit() {
     }
   });

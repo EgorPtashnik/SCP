@@ -9,6 +9,14 @@ sap.ui.define([
       const oModel = new JSONModel(Device);
       oModel.setDefaultBindingMode("OneWay");
       return oModel;
+    },
+    createStateModel() {
+      const oModel = new JSONModel({
+        navMenuExpanded: false,
+        navMenuItems: [],
+        selectedPage: "nHome"
+      });
+      return oModel;
     }
   };
 });

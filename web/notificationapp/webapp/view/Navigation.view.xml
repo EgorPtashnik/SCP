@@ -1,0 +1,7 @@
+<mvc:View controllerName="notificationapp.controller.Navigation" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Page showHeader="false">
+    <Text text="navigation page"/>
+  </Page>
+</mvc:View>

@@ -12,7 +12,7 @@ server:
       afterMiddleware: compression
       configuration:
         port: 35733
-        watchPath: "web/notificationappj/webapp"
+        watchPath: "web/notificationapp/webapp"
     - name: ui5-middleware-cfdestination
       afterMiddleware: compression
       configuration:

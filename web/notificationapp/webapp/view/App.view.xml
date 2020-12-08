@@ -1,5 +1,29 @@
 <mvc:View controllerName="notificationapp.controller.App" displayBlock="true"
-  xmlns="sap.m"
+  xmlns="sap.tnt"
+  xmlns:m="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
-  <App id="idApp"/>
+  <ToolPage sideExpanded="{state>/navMenuExpanded}">
+    <header>
+      <ToolHeader>
+        <m:Button type="Transparent" icon="sap-icon://menu" press="toggleNavMenu"/>
+        <m:ToolbarSeparator/>
+        <m:Title text="{i18n>appTitle}"/>
+      </ToolHeader>
+    </header>
+    <sideContent>
+      <SideNavigation>
+        <NavigationList items="{state>/navMenuItems}"
+          selectedKey="{state>/selectedPage}"
+          itemSelect="handleChangePage">
+          <NavigationListItem text="{state>name}"
+            icon="{state>icon}"
+            key="{state>key}"
+            target="{state>target}"/>
+        </NavigationList>
+      </SideNavigation>
+    </sideContent>
+    <mainContents>
+      <m:App id="idApp"/>
+    </mainContents>
+  </ToolPage>
 </mvc:View>

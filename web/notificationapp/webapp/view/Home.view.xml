@@ -1,5 +1,7 @@
-<mvc:View controllerName="aboutapp.controller.Home" displayBlock="true"
+<mvc:View controllerName="notificationapp.controller.Home" displayBlock="true"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
-
+  <Page showHeader="false">
+    <Text text="home page"/>
+  </Page>
 </mvc:View>

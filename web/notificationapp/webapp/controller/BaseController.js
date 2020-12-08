@@ -6,6 +6,9 @@ sap.ui.define([
   "use strict";
 
   return Controller.extend("notificationapp.controller.BaseController", {
+    onInit() {
+      this.state = this.getOwnerComponent().getModel("state");
+    },
     getModel(sName) {
       return this.getView().getModel(sName)
     },
@@ -15,7 +18,7 @@ sap.ui.define([
     getResourceBundle() {
       return this.getOwnerComponent().getModel("i18n").getResourceBundle();
     },
-    navTo() {
+    navTo(sTarget, mParameters, bReplace) {
       this.getRouter().navTo(sTarget, mParameters, bReplace);
     },
     getRouter() {
@@ -28,6 +31,9 @@ sap.ui.define([
       } else {
         this.getRouter().navTo("home", {}, true);
       }
+    },
+    setSelectedPage(sKey) {
+      this.state.setProperty("/selectedPage", sKey);
     }
   });
 })

@@ -102,12 +102,66 @@
           "name": "home",
           "pattern": "",
           "target": "home"
+        },
+        {
+          "name": "notification",
+          "pattern": "notification",
+          "target": "notification"
+        },
+        {
+          "name": "action",
+          "pattern": "action",
+          "target": "action"
+        },
+        {
+          "name": "channel",
+          "pattern": "channel",
+          "target": "channel"
+        },
+        {
+          "name": "navigation",
+          "pattern": "navigation",
+          "target": "navigation"
+        },
+        {
+          "name": "type",
+          "pattern": "type",
+          "target": "type"
+        },
+        {
+          "name": "bulk",
+          "pattern": "bulk",
+          "target": "bulk"
         }
       ],
       "targets": {
         "home": {
           "viewType": "XML",
           "viewName": "Home"
+        },
+        "notification": {
+          "viewType": "XML",
+          "viewName": "Notification"
+        },
+        "action": {
+          "viewType": "XML",
+          "viewName": "Action"
+        },
+        "bulk": {
+          "viewType": "XML",
+          "viewName": "Bulk"
+        },
+        "type": {
+          "viewType": "XML",
+          "viewName": "Type"
+        },
+        "navigation": {
+          "viewType": "XML",
+          "viewName": "Navigation"
+        },
+        "channel": {
+          "viewType": "XML",
+          "viewName": "Channel"
         }
       }
     }
