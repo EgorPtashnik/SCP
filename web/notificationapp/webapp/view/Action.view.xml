@@ -1,7 +1,39 @@
 <mvc:View controllerName="notificationapp.controller.Action" displayBlock="true"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc">
-  <Page showHeader="false">
-    <Text text="action page"/>
+  <Page title="{i18n>nActions}">
+    <headerContent>
+      <Button text="{=!${state>/action/new}? ${i18n>show} : ${i18n>hide}} {i18n>form}"
+        press="toggleForm"/>
+    </headerContent>
+    <core:Fragment fragmentName="notificationapp.view.fragments.Action" type="XML"/>
+    <Table id="idActionTable" visible="{=!${state>/action/new}}"
+      items="{/Actions}" autoPopinMode="true">
+      <headerToolbar>
+        <Toolbar>
+          <Title titleStyle="H3" text="{i18n>data}"/>
+          <ToolbarSpacer/>
+        </Toolbar>
+      </headerToolbar>
+      <columns>
+        <Column><Label design="Bold" text="Id"/></Column>
+        <Column><Label design="Bold" text="ActionId"/></Column>
+        <Column><Label design="Bold" text="ActionText"/></Column>
+        <Column><Label design="Bold" text="GroupActionText"/></Column>
+        <Column><Label design="Bold" text="Nature"/></Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <ObjectIdentifier title="{Id}"/>
+            <Text text="{ActionId}"/>
+            <Text text="{ActionText}"/>
+            <Text text="{GroupActionText}"/>
+            <Text text="{Nature}"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
   </Page>
 </mvc:View>

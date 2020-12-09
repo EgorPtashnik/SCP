@@ -53,7 +53,6 @@ sap.ui.define([
     },
     handleChangePage(oEvent) {
       const oSelectedItem = oEvent.getParameter("item");
-      this.setSelectedPage(oSelectedItem.getKey());
       this.navTo(oSelectedItem.getTarget());
     },
     toggleNavMenu() {

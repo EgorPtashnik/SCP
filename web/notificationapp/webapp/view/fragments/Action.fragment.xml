@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+  <Title visible="{state>/action/new}"
+    titleStyle="H3"
+    text="{i18n>createNewAction}"
+    class="sapUiSmallMargin"/>
+  <f:SimpleForm visible="{state>/action/new}"
+    editable="true"
+    layout="ColumnLayout"
+    columnsM="2"
+    columnsL="3"
+    columnsXL="4">
+
+    <core:Title text="{i18n>actionMandatoryFields}"/>
+    <Label design="Bold" required="true" text="Id: Integer"/>
+    <Input type="Text" value="{state>/action/data/Id}"/>
+    <Label design="Bold" required="true" text="ActionId: String(32)"/>
+    <Input type="Text" value="{state>/action/data/ActionId}"/>
+    <Label design="Bold" required="true" text="ActionText: String(40)"/>
+    <Input type="Text" value="{state>/action/data/ActionText}"/>
+    <Label design="Bold" required="true" text="GroupActionText: String(40)"/>
+    <Input type="Text" value="{state>/action/data/GroupActionText}"/>
+    <Label design="Bold" required="true" text="Nature: String(20)"/>
+    <Input type="Text" value="{state>/action/data/Nature}"/>
+  </f:SimpleForm>
+  <VBox visible="{state>/action/new}" class="sapUiTinyMarginBeginEnd">
+    <Button width="100%"
+      press="handleSubmitNewAction"
+      text="{i18n>submit}"
+      type="Emphasized"/>
+  </VBox>
+</core:FragmentDefinition>

@@ -48,6 +48,32 @@ sap.ui.define([
             Actor_DisplayText: "",
             Actor_ImageSource: ""
           }
+        },
+        action: {
+          new: false,
+          data: {
+            Id: 0,
+            ActionId: "",
+            ActionText: "",
+            GroupActionText: "",
+            Nature: ""
+          }
+        },
+        channel: {
+          new: false,
+          data: {
+            ChannelId: "",
+            IsActive: false,
+            Description: ""
+          }
+        },
+        navigation: {
+          new: false,
+          data: {
+            NotificationId: "",
+            Key: "",
+            Value: ""
+          }
         }
       });
       return oModel;

@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+  <Title visible="{state>/channel/new}"
+    titleStyle="H3"
+    text="{i18n>createNewChannel}"
+    class="sapUiSmallMargin"/>
+  <f:SimpleForm visible="{state>/channel/new}"
+    editable="true"
+    layout="ColumnLayout"
+    columnsM="2"
+    columnsL="3"
+    columnsXL="4">
+
+    <core:Title text="{i18n>channelMandatoryFields}"/>
+    <Label design="Bold" required="true" text="ChannelId: String(21)"/>
+    <Input type="Text" value="{state>/channel/data/ChannelId}"/>
+    <Label design="Bold" required="true" text="IsActive: Boolean"/>
+    <CheckBox selected="{state>/channel/data/IsActive}" text="Default: False"/>
+    <Label design="Bold" required="true" text="Description: String(60)"/>
+    <Input type="Text" value="{state>/channel/data/Description}"/>
+  </f:SimpleForm>
+  <VBox visible="{state>/channel/new}" class="sapUiTinyMarginBeginEnd">
+    <Button width="100%"
+      press="handleSubmitNewChannel"
+      text="{i18n>submit}"
+      type="Emphasized"/>
+  </VBox>
+</core:FragmentDefinition>

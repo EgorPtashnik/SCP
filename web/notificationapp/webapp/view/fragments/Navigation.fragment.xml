@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+  <Title visible="{state>/navigation/new}"
+    titleStyle="H3"
+    text="{i18n>createNewNavigation}"
+    class="sapUiSmallMargin"/>
+  <f:SimpleForm visible="{state>/navigation/new}"
+    editable="true"
+    layout="ColumnLayout"
+    columnsM="2"
+    columnsL="3"
+    columnsXL="4">
+
+    <core:Title text="{i18n>navigationMandatoryFields}"/>
+    <Label design="Bold" required="true" text="NotificationId: UUID"/>
+    <Input type="Text" value="{state>/navigation/data/NotificationId}"/>
+    <Label design="Bold" required="true" text="Key: String(100)"/>
+    <Input type="Text" value="{state>/navigation/data/Key}"/>
+    <Label design="Bold" required="true" text="Value: String"/>
+    <Input type="Text" value="{state>/navigation/data/Value}"/>
+  </f:SimpleForm>
+  <VBox visible="{state>/navigation/new}" class="sapUiTinyMarginBeginEnd">
+    <Button width="100%"
+      press="handleSubmitNewNavigation"
+      text="{i18n>submit}"
+      type="Emphasized"/>
+  </VBox>
+</core:FragmentDefinition>

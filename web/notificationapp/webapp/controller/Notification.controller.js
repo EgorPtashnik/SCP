@@ -1,10 +1,19 @@
 sap.ui.define([
   "notificationapp/controller/BaseController",
-  "notificationapp/utils/utils"
-], function(BaseController, Utils) {
+  "notificationapp/utils/utils",
+  "sap/m/MessageBox"
+], function(BaseController, Utils, MessageBox) {
   "use strict";
 
   return BaseController.extend("notificationapp.controller.Notification", {
+    onInit() {
+      BaseController.prototype.onInit.apply(this, arguments);
+      this.getRouter().attachRouteMatched(this._handleRouteMatched, this);
+    },
+    _handleRouteMatched(oEvent) {
+      if (oEvent.getParameter("name") !== "notification") return;
+      this.setSelectedPage("nNotifications");
+    },
     toggleForm() {
       if (!this.state.getProperty("/notification/data/Id")) this._generateUUID();
       this.state.setProperty("/notification/new", !this.state.getProperty("/notification/new"));
@@ -13,7 +22,14 @@ sap.ui.define([
     handleSubmitNewNotification() {
       const oTableBinding = this.byId("idNotificationTable").getBinding("items");
       const oNewNotificationData = this.state.getProperty("/notification/data");
-      console.log(oNewNotificationData);
+      if (!oNewNotificationData.SensitiveText || !oNewNotificationData.Text || !oNewNotificationData.GroupHeaderText ||
+          !oNewNotificationData.NavigationIntent || !oNewNotificationData.NotificationCount || !oNewNotificationData.OriginId ||
+          !oNewNotificationData.NavigationTargetAction || !oNewNotificationData.NotificationTypeId || !oNewNotificationData.NotificationTypeKey ||
+          !oNewNotificationData.NavigationTargetObject || !oNewNotificationData.Actor_Id || !oNewNotificationData.Actor_DisplayText ||
+          !oNewNotificationData.Actor_ImageSource) {
+        MessageBox.error("Fill all required fields!");
+        return;
+      }
       oTableBinding.create(oNewNotificationData);
       this._restoreState();
     },
