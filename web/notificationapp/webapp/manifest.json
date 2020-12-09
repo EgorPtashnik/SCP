@@ -11,7 +11,7 @@
     "description": "{{appDescription}}",
     "dataSources": {
       "odata": {
-        "uri": "/odata/notification",
+        "uri": "/odata/notification/",
         "type": "OData",
         "settings": {
           "odataVersion": "4.0"
@@ -72,14 +72,14 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "notificationapp.i18n.i18n"
-        },
-        "": {
-          "dataSource": "odata",
-          "preload": true,
-          "settings": {
-            "synchronizationMode": "None",
-            "operationMode": "Server"
-          }
+        }
+      },
+      "": {
+        "dataSource": "odata",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server"
         }
       }
     },

@@ -26,7 +26,7 @@ sap.ui.define([
           data: {
             Id: "",
             OriginId: "",
-            CreateAt: "",
+            CreatedAt: new Date(),
             IsActionable: false,
             IsRead: false,
             IsGroupable: false,
@@ -36,7 +36,7 @@ sap.ui.define([
             NavigationIntent: "",
             NotificationTypeId: "",
             NotificationTypeKey: "",
-            ParentId: "",
+            ParentId: null,
             Priority: "None",
             SensitiveText: "",
             Text: "",

@@ -8,17 +8,20 @@ sap.ui.define([
     toggleForm() {
       if (!this.state.getProperty("/notification/data/Id")) this._generateUUID();
       this.state.setProperty("/notification/new", !this.state.getProperty("/notification/new"));
+      if (this.state.getProperty("/notification/new")) this.state.setProperty("/notification/data/CreatedAt", new Date());
     },
     handleSubmitNewNotification() {
+      const oTableBinding = this.byId("idNotificationTable").getBinding("items");
       const oNewNotificationData = this.state.getProperty("/notification/data");
       console.log(oNewNotificationData);
+      oTableBinding.create(oNewNotificationData);
       this._restoreState();
     },
     _restoreState() {
       this.state.setProperty("/notification/data", {
         Id: "",
         OriginId: "",
-        CreateAt: "",
+        CreatedAt: new Date(),
         IsActionable: false,
         IsRead: false,
         IsGroupable: false,
@@ -28,7 +31,7 @@ sap.ui.define([
         NavigationIntent: "",
         NotificationTypeId: "",
         NotificationTypeKey: "",
-        ParentId: "",
+        ParentId: null,
         Priority: "None",
         SensitiveText: "",
         Text: "",
