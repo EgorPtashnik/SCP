@@ -12,7 +12,9 @@
 
     <core:Title text="{i18n>navigationMandatoryFields}"/>
     <Label design="Bold" required="true" text="NotificationId: UUID"/>
-    <Input type="Text" value="{state>/navigation/data/NotificationId}"/>
+    <Select selectedKey="{state>/navigation/data/NotificationId}" items="{/Notifications}">
+      <core:Item key="{Id}" text="{Id}"/>
+    </Select>
     <Label design="Bold" required="true" text="Key: String(100)"/>
     <Input type="Text" value="{state>/navigation/data/Key}"/>
     <Label design="Bold" required="true" text="Value: String"/>

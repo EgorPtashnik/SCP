@@ -19,6 +19,7 @@ sap.ui.define([
     handleSubmitNewAction() {
       const oTableBinding = this.byId("idActionTable").getBinding("items");
       const oNewActionData = this.state.getProperty("/action/data");
+      oNewActionData.Id = +oNewActionData.Id;
       if (!oNewActionData.Id || !oNewActionData.ActionId || !oNewActionData.ActionText ||
           !oNewActionData.GroupActionText || !oNewActionData.Nature) {
         MessageBox.error("Fill all required fields!");

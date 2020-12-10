@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+  <Title visible="{state>/type/new}"
+    titleStyle="H3"
+    text="{i18n>createNewType}"
+    class="sapUiSmallMargin"/>
+  <f:SimpleForm visible="{state>/type/new}"
+    editable="true"
+    layout="ColumnLayout"
+    columnsM="2"
+    columnsL="3"
+    columnsXL="4">
+
+    <core:Title text="{i18n>typeMandatoryFields}"/>
+    <Label design="Bold" required="true" text="NotificationTypeId: UUID"/>
+    <Input type="Text" value="{state>/type/data/NotificationTypeId}"/>
+    <Label design="Bold" required="true" text="NotificationTypeDesc: String(40)"/>
+    <Input type="Text" value="{state>/type/data/NotificationTypeDesc}"/>
+    <Label design="Bold" text="PriorityDefault: String(20)"/>
+    <Input type="Text" value="{state>/type/data/PriorityDefault}"/>
+    <Label design="Bold" required="true" text="DoNotDeliver: Boolean"/>
+    <CheckBox selected="{state>/type/data/DoNotDeliver}" text="Default: False"/>
+    <Label design="Bold" required="true" text="DoNotDeliverMob: Boolean"/>
+    <CheckBox selected="{state>/type/data/DoNotDeliverMob}" text="Default: False"/>
+
+  </f:SimpleForm>
+  <VBox visible="{state>/type/new}" class="sapUiTinyMarginBeginEnd">
+    <Button width="100%"
+      press="handleSubmitNewType"
+      text="{i18n>submit}"
+      type="Emphasized"/>
+  </VBox>
+</core:FragmentDefinition>

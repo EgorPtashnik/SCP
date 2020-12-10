@@ -12,7 +12,7 @@
 
     <core:Title text="{i18n>actionMandatoryFields}"/>
     <Label design="Bold" required="true" text="Id: Integer"/>
-    <Input type="Text" value="{state>/action/data/Id}"/>
+    <Input type="Number" value="{state>/action/data/Id}"/>
     <Label design="Bold" required="true" text="ActionId: String(32)"/>
     <Input type="Text" value="{state>/action/data/ActionId}"/>
     <Label design="Bold" required="true" text="ActionText: String(40)"/>

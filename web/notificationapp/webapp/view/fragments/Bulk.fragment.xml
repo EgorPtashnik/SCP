@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+  <Title visible="{state>/bulk/new}"
+    titleStyle="H3"
+    text="{i18n>createNewBulk}"
+    class="sapUiSmallMargin"/>
+  <f:SimpleForm visible="{state>/bulk/new}"
+    editable="true"
+    layout="ColumnLayout"
+    columnsM="2"
+    columnsL="3"
+    columnsXL="4">
+
+    <core:Title text="{i18n>bulkMandatoryFields}"/>
+    <Label design="Bold" required="true" text="NotificationId: UUID"/>
+    <Input type="Text" value="{state>/bulk/data/NotificationId}"/>
+    <Label design="Bold" required="true" text="Success: Boolean"/>
+    <CheckBox selected="{state>/bulk/data/Success}" text="Default: False"/>
+    <Label design="Bold" required="true" text="DeleteOnReturn: Boolean"/>
+    <CheckBox selected="{state>/bulk/data/DeleteOnReturn}" text="Default: False"/>
+
+  </f:SimpleForm>
+  <VBox visible="{state>/bulk/new}" class="sapUiTinyMarginBeginEnd">
+    <Button width="100%"
+      press="handleSubmitNewBulk"
+      text="{i18n>submit}"
+      type="Emphasized"/>
+  </VBox>
+</core:FragmentDefinition>

@@ -1,7 +1,39 @@
 <mvc:View controllerName="notificationapp.controller.Type" displayBlock="true"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc">
-  <Page showHeader="false">
-    <Text text="type page"/>
+  <Page title="{i18n>nType}">
+    <headerContent>
+      <Button text="{=!${state>/type/new}? ${i18n>show} : ${i18n>hide}} {i18n>form}"
+        press="toggleForm"/>
+    </headerContent>
+    <core:Fragment fragmentName="notificationapp.view.fragments.Type" type="XML"/>
+    <Table id="idTypeTable" visible="{=!${state>/type/new}}"
+      items="{/NotificationTypePersonalizationSet}" autoPopinMode="true">
+      <headerToolbar>
+        <Toolbar>
+          <Title titleStyle="H3" text="{i18n>data}"/>
+          <ToolbarSpacer/>
+        </Toolbar>
+      </headerToolbar>
+      <columns>
+        <Column><Label design="Bold" text="NotificationTypeId"/></Column>
+        <Column><Label design="Bold" text="NotificationTypeDesc"/></Column>
+        <Column><Label design="Bold" text="PriorityDefault"/></Column>
+        <Column><Label design="Bold" text="DoNotDeliver"/></Column>
+        <Column><Label design="Bold" text="DoNotDeliverMob"/></Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <ObjectIdentifier title="{NotificationTypeId}"/>
+            <Text text="{NotificationTypeDesc}"/>
+            <Text text="{PriorityDefault}"/>
+            <Text text="{DoNotDeliver}"/>
+            <Text text="{DoNotDeliverMob}"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
   </Page>
 </mvc:View>

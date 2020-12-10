@@ -16,9 +16,10 @@ sap.ui.define([
     toggleForm() {
       this.state.setProperty("/navigation/new", !this.state.getProperty("/navigation/new"));
     },
-    handleSubmitNewChannel() {
+    handleSubmitNewNavigation() {
       const oTableBinding = this.byId("idNavigationTable").getBinding("items");
       const oNewNavigationData = this.state.getProperty("/navigation/data");
+      console.log(oNewNavigationData);
       if (!oNewNavigationData.NotificationId || !oNewNavigationData.Key || !oNewNavigationData.Value) {
         MessageBox.error("Fill all required fields!");
         return;

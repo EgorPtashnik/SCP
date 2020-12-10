@@ -74,6 +74,24 @@ sap.ui.define([
             Key: "",
             Value: ""
           }
+        },
+        type: {
+          new: false,
+          data: {
+            NotificationTypeId: "",
+            NotificatioNTypeDesc: "",
+            PriorityDefault: "",
+            DoNotDeliver: false,
+            DoNotDeliverMob: false
+          }
+        },
+        bulk: {
+          new: false,
+          data: {
+            NotificationId: "",
+            Success: false,
+            DeleteOnReturn: false
+          }
         }
       });
       return oModel;
